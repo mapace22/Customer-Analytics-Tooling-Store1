@@ -1,52 +1,45 @@
-# proyecto_2_extraccion
-Análisis y extracción de datos de clientes para Store 1 | Python: funciones, bucles y condicionales
+# 📊 Customer Analytics & Automated Extraction Tool: Store 1
 
-# Proyecto: Análisis y Extracción de Datos de Clientes para Store 1
+## 🎯 Visión General
+Este proyecto representa la fase de **Ingeniería Analítica** para "Store 1". Tras asegurar la calidad de los datos, el enfoque se desplazó hacia la creación de un motor de análisis basado en **Programación Funcional**. El objetivo fue desarrollar herramientas reutilizables que permitan extraer *insights* estratégicos y segmentar la base de clientes de forma automatizada.
 
-## Descripción del Proyecto
-Este proyecto se centra en la aplicación de técnicas de programación en Python para analizar y extraer información de una lista de datos de clientes de "Store 1". A partir de las bases establecidas en el proyecto anterior (limpieza de datos), se desarrollaron funciones y lógica avanzada para responder a preguntas de negocio específicas y gestionar los datos de manera más eficiente.
+## 🧱 Implementación Técnica: Programación Funcional
+A diferencia de scripts lineales, este proyecto implementa un enfoque modular, permitiendo que las herramientas de análisis sean escalables y fáciles de mantener.
 
-## Objetivos del Análisis
-- Crear funciones reutilizables para la limpieza de datos, demostrando la capacidad de escribir código modular y escalable.
-- Manejar estructuras de datos complejas (listas anidadas) para procesar información de múltiples usuarios.
-- Calcular métricas de negocio como los ingresos totales.
-- Filtrar y segmentar clientes basados en criterios múltiples (edad, gasto total y categorías de compra).
-- Demostrar habilidades en el uso de bucles (`for`, `while`) y condicionales (`if`) para la manipulación de datos.
+### Capacidades del Motor Analítico:
+* **Encapsulamiento de Lógica (UDFs):** Creación de funciones de usuario (como `clean_user`) que actúan como microservicios de limpieza dentro del flujo de datos.
+* **Procesamiento de Estructuras Complejas:** Manejo de datos anidados para realizar cálculos de ingresos agregados y métricas de comportamiento.
+* **Simulación de Escenarios de Negocio:** Uso de lógica iterativa (`while loops`) y librerías estadísticas (`random`) para modelar proyecciones de gasto y comportamiento de compra.
 
-## Tecnologías Utilizadas
-- **Python**: El lenguaje de programación principal.
-- **Funciones**: Creación de funciones (`def`) para encapsular lógica de limpieza de datos.
-- **Bucles y Condicionales**: Uso de `for loops`, `while loops` e `if statements` para iterar y filtrar datos.
-- **Operaciones en Listas**: `append()`, `insert()`, `pop()` y `sum()`.
-- **f-strings**: Para la generación de mensajes dinámicos.
-- **random**: Uso de la librería para simular datos.
+## 🔍 Algoritmos de Segmentación y Extracción
+El motor analítico permite realizar consultas complejas basadas en múltiples dimensiones de negocio:
 
-## Pasos Clave del Análisis
-1. **Desarrollo de Funciones**: 
-   - Se creó una función `clean_user()` para automatizar la limpieza de nombres, edades y categorías de los usuarios.
-   - Esta función asegura que los datos estén estandarizados antes de cualquier análisis.
+| Segmento | Lógica de Extracción | Objetivo de Negocio |
+| :--- | :--- | :--- |
+| **High-Value Youth** | Edad < 30 & Gasto > $1000 | Identificación de perfiles con alto LTV potencial. |
+| **Categorical Affinity** | Filtrado por `fav_categories` | Campañas de marketing dirigidas por intereses específicos. |
+| **Revenue Aggregation** | Reducción de listas anidadas | Cálculo en tiempo real de los ingresos totales de la unidad. |
 
-2. **Análisis de Ingresos**:
-   - Se utilizó un bucle `for` para iterar sobre todos los usuarios.
-   - Se calculó el total de ingresos generados para la empresa.
+## 🛠️ Stack Tecnológico
+* **Lenguaje:** Python 3.12.x
+* **Lógica Avanzada:** Funciones `def`, Control de flujo (If/Else), Bucles de alto rendimiento (For/While).
+* **Manejo de Datos:** Operaciones nativas de listas (`append`, `pop`, `sum`) optimizadas para velocidad de ejecución.
 
-3. **Simulación de Compras**:
-   - Se implementó un bucle `while` para simular compras adicionales.
-   - La lógica continuaba hasta que un cliente alcanzaba un gasto objetivo.
+## 💡 Impacto en el Negocio
+La creación de la función `get_client_by_cat` permite a la dirección de "Store 1" obtener reportes instantáneos de clientes clave sin necesidad de realizar consultas manuales. Esto reduce el tiempo de **Data-to-Insight**, permitiendo una toma de decisiones basada en datos reales y segmentados.
+Automated Customer Segmentation Engine
+To optimize marketing efforts, I developed a modular extraction tool that filters the customer base by specific attributes (age, spending, and interest categories).
 
-4. **Segmentación de Clientes**:
-   - Se combinaron bucles y condicionales para identificar clientes según criterios:
-     - Clientes menores de 30 años
-     - Clientes menores de 30 años con gasto superior a $1000
-     - Clientes que compraron categorías específicas como "clothes" (ropa)
 
-5. **Extracción de Datos por Categoría**:
-   - Se desarrolló la función `get_client_by_cat()` para extraer:
-     - ID
-     - Nombre
-     - Edad
-     - Gasto total
-   - Proporciona una herramienta de análisis poderosa para la dirección.
+Core Logic:
 
-## Conclusiones
-Este proyecto demuestra un dominio intermedio de Python aplicado a la ciencia de datos. Las funciones desarrolladas, combinadas con el uso de estructuras de control, permiten transformar datos brutos en información valiosa de negocio, lo que representa una habilidad fundamental para cualquier analista de datos.
+# Function to extract high-value segments by category
+def get_client_by_cat(users_list, category):
+    return [user for user in users_list if category in user['fav_categories']]
+
+# Example usage: Identifying 'Clothes' enthusiasts
+clothes_segment = get_client_by_cat(users_list, 'clothes')
+Output Preview: Figure 1: Automated extraction of customers interested in the 'Clothes' category for targeted campaigns.
+
+
+![get_client_by_cat](img/function.png)
